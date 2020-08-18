@@ -5,9 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: thomasowow/laravel-php:7.4
-      options: --entrypoint bash
     steps:
     - uses: actions/checkout@v2
+    - run: ls -l
+    - run: printenv
     - name: Yarn
+      shell: bash
       run: |
         yarn
