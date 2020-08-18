@@ -1,11 +1,13 @@
-name: A workflow for my Hello World file
+name: Laravel
 on: push
 jobs:
-  build:
-    name: Hello world action
-    runs-on: ubuntu-latest    
+  laravel-checks:
+    runs-on: ubuntu-latest
+    container:
+      image: thomasowow/laravel-php:7.4
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./action-a
-      env:
-        MY_NAME: "Mona"
+    - uses: actions/checkout@v2
+    - run: bash
+    - name: Yarn
+      run: |
+        yarn
